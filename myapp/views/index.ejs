@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CDSS</title>
+
+    <!-- font Awesome 5 CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <style>
+        .navbar{
+  background-color: #fcfcfc !important;/* 내비게이션 배경 색상 */
+}
+.navbar .navbar-brand{/* 내비게이션 제목 'CDSS' 글자 및 하이라이트 색상 */
+  color: #fff;
+  background-color: #4374D9;
+  border-bottom-left-radius: 15px 15px;
+  border-top-right-radius: 15px 15px;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus
+{
+    color: #fff;
+    background-color: #4374D9;
+}
+/* navbar의 버튼들의 css */
+.btn-round{
+    border-radius: 24px;
+    background-color: #fcfcfc;
+}
+.btn-round:hover,
+.btn-round:focus
+{
+    background-color:#eaeaea;
+    color: black;
+}
+.right-header-btn{
+    margin-right:8px;
+}
+.btn-circle{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+/* side bar */
+/* Basic css */
+body {
+  padding-top: 54px;
+}
+@media (min-width: 992px) {
+  body {
+    padding-top: 100px;
+  }
+}
+.portfolio-item {
+  margin-bottom: 30px;
+}
+           /* 논문상세페이지 css */
+          #overlay {
+    position: fixed;
+    display: none;
+    width: 47.7%;
+    height: 87%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: cornsilk;/* 카드 속성에 가려져서 어차피 안 보임 */
+    z-index: 2;
+    cursor: pointer;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+          .scroll{
+              max-height: 8800px;
+              overflow-y: auto;
+          } /* 논문상세페이지 카드 스크롤 css */
+          .card-header {
+              background-color: white;
+          }
+          .card-footer {
+              background-color: white;
+          }
+
+          /* 마인드맵 css */
+        .scroll2{
+              max-height: 8800px;
+              overflow-x: auto;
+            overflow-y: auto;
+          } /* 마인드맵 카드 스크롤 css */
+          .mindmap {
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   user-select: none;
+   width: 100%;
+   height: 5%;
+   text-align: left;
+   white-space: nowrap;
+   }
+.mindmap:before {
+   content: '';
+   display: inline-block;
+   vertical-align: middle;
+   height: 100%;
+   width: 0;
+   }
+.node {
+   position: relative;
+   display: inline-block;
+   vertical-align: middle;
+   height: 42px;
+   border: 1px solid #ccc;
+   padding: 0 4px;
+   margin: 5px 0;
+   background: #fff;
+   border-radius: 5px;
+   text-align: left;
+   cursor: pointer;
+   transition: all .2s;
+   direction: ltr;
+   }
+.node:hover {
+   box-shadow: 0 0 3px 0 #3498DB;
+   }
+.node:active {
+   box-shadow: 0 0 1px 0 #3498DB;
+   }
+.node_active,
+.node_active:hover {
+   box-shadow: 0 0 2px 1px #3498DB;
+   }
+.node_root {
+   border: 0;
+   background: #3498DB;
+   color: #fff;
+   font: 30px/40px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   padding: 0 10px;
+   height: 40px;
+   }
+.children {
+   position: relative;
+   list-style: none;
+   margin: 0;
+   text-align: left;
+   padding: 0 0 0 6px;
+   display: inline-block;
+   vertical-align: middle;
+   }
+.children:before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 4px;
+   width: 0px;
+   border-top: 1px solid #ccc;
+   }
+   .children__item {
+     list-style: none;
+      position: relative;
+      padding: 0 0 0 10px;
+      border-left: 1px solid #ccc;
+      }
+   .children__item:first-child,
+   .children__item:last-child {
+      border-left: 70px solid transparent;
+      }
+   .children__item:before {
+      content: '';
+      width: 10px;
+      border-top: 1px solid #ccc;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      }
+   .children__item:first-child:before {
+      left: -1px;
+      bottom: 0;
+      border-radius: 4px 0 0 0;
+      border-left: 1px solid #ccc;
+      }
+   .children__item:last-child:before {
+      left: -1px;
+      top: 0;
+      bottom: 50%;
+      border-radius: 0 0 0 4px;
+      border: 0;
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      }
+   .children__item:first-child:last-child:before {
+      top: 50%;
+      bottom: auto;
+      border: 0;
+      border-radius: 0;
+      border-top: 1px solid #ccc;
+      }
+
+        .node_root_text{
+            font: 20px/40px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        .node__text{
+            font: 15px/40px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+      </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><b>&nbsp;&nbsp;CDSS&nbsp;&nbsp;</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <sear class="collapse navbar-collapse" id="navbarResponsive">
+
+                <form class="navbar-form" method="post">
+                    <div class="input-group">
+                        <input type="text" id="searchtext" class="form-control placeicon" name="searchBar" value="<%-keyword%>" placeholder="검색" style="width: 690px">
+                        <input type="submit" name="search" value="search" class="btn btn-primary">
+                        <input type="submit" name="save" value="save" class="btn btn-primary">
+                    </div>
+
+                </form>
+
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <button class="btn btn-round right-header-btn" href="#"><b>홈</b>
+                            <span class="sr-only">(current)</span>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-round right-header-btn" href="#"><b>마이페이지</b></button>
+                    </li>
+                    <div class="btn-group">
+                        <button class="btn btn-round right-header-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">menu1</a></li>
+                            <li><a class="dropdown-item" href="#">menu2</a></li>
+                            <li><a class="dropdown-item" href="#">menu3</a></li>
+                        </div>
+                    </div>
+
+                </ul>
+        </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <% var pid = ""; var pid_list = [];%>
+                        <% Object.keys(paper.papers).forEach(function(key){ %>
+                        <div class="col-sm-6 portfolio-item">
+                            <%pid = paper.papers[key].pmid;%>
+                            <%pid_list.push(pid); console.log(pid);%>
+                            <div type="button" class="card h-100" onclick="on()">
+                                <div class="card-body">
+                                    <h6 class="card-title">
+                                        <b>
+                                            <%-paper.papers[key].title%></b>
+                                    </h6>
+                                    <p class="card-text">
+                                        <%-paper.papers[key].authors%>
+                                    </p>
+                                    <form action="/view" method="post">
+                                        <input type="hidden" name="selected_pid_<%-key%>" value="<%=pid_list[key]%>" />
+                                        <input type="submit" name="view" class="btn btn-default" value="view" />
+                                        <input type="submit" name="title_save" class="btn btn-default" value="save" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <%});%>
+                    </div>
+                </div>
+
+
+                <!-- Mindmap -->
+                <div class="col">
+                    <div style="position: fixed">
+
+
+                        <div class="container-fluid">
+                            <div class="card">
+                                <div class="card-body scroll2" style="height: 54rem; width: 55rem;">
+                                    <h5 class="card-title">Mindmap name</h5>
+
+                                    <div class="mindmap">
+                                        <% for (var key = 0; key < database.length; key++){%>
+
+<div>
+
+                                            <% if(database[key].parent == 0 ){%>
+                                        <div></div>
+
+                                            <div class="node node_root">
+                                                <div class="node_root_text">
+                                                    <%-database[key].searched%>
+                                                </div>
+                                            </div>
+
+
+
+                                            <%}
+
+                                        else if (database[key].ordering == database[key-1].ordering) {%>
+                                            <ol class="children">
+                                                <li class="children__item">
+                                                    <div class="node"><!-- 클래스 안에 싹 지우고 node로 바꿔도 됌 -->
+                                                        <div class="node__text">
+                                                            <%-database[key].pname%>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                </ol>
+
+
+                                            <%}
+
+                                        else if (database[key].ordering != database[key-1].ordering) {%>
+
+                                                <div>
+                                                    <div class="node node_root">
+                                                        <div class="node_root_text">
+                                                            <%-database[key].searched%>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                    <ol class="children">
+                                                        <li class="children__item">
+                                                            <div class="node"><!-- 클래스 안에 싹 지우고 node로 바꿔도 됌 -->
+                                                                <div class="node__text">
+                                                                    <%-database[key].pname%>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ol>
+                                                    </div>
+                                        </div>
+
+                                                    <%} else {%>
+                                                    <h2>ERROR</h2>
+                                                    <%}%>
+</div>
+
+                                        <%}%>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div>
+                    <!-- /.container -->
+                </div>
+
+                <!-- 마인드맵 관련 자바스크립트 -->
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+                <script>
+                    $(function() {
+                        $('.mindmap').mindmap();
+                    });
+
+                </script>
+
+
+                <!-- Bootstrap core JavaScript -->
+                <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+                <!-- Custom javascript-->
+
+                <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+                <!-- jquery -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+                <!-- Bootstrap core JavaScript -->
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
